@@ -1,4 +1,4 @@
-package com.dumi;
+package com.dumi.games;
 
 public class TemperaturesGame {
 

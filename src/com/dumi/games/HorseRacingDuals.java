@@ -1,4 +1,4 @@
-package com.dumi;
+package com.dumi.games;
 import java.util.*;
 
 //input: 3 5 8 9

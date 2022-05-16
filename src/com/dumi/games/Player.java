@@ -1,4 +1,4 @@
-package com.dumi;
+package com.dumi.games;
 
 import java.util.*;
 import java.io.*;

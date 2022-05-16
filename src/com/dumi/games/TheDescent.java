@@ -1,4 +1,4 @@
-package com.dumi;
+package com.dumi.games;
 import java.util.Arrays;
 import java.util.Scanner;
 
