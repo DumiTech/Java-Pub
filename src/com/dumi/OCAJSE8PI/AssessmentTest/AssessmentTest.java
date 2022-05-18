@@ -1,11 +1,21 @@
 package com.dumi.OCAJSE8PI.AssessmentTest;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class AssessmentTest {
     public static void main(String[] args) {
-        ex7();
+        ex18();
+
+//         ex. 17:
+//        System.out.println(test(i -> i == 5));
+//        System.out.println(test((i) -> i == 5));
+//        System.out.println(test((i) -> {return i == 5;}));
+//
+//        System.out.println(test((Integer i) -> i == 5));
     }
 
     public static void playground() {
@@ -59,6 +69,19 @@ public class AssessmentTest {
         list.set(1, array[1]);
         list.remove(0);
         System.out.println(list);
+    }
+
+    private static boolean test(Predicate<Integer> p) {
+        return p.test(5);
+    }
+
+    public static void ex18() {
+//        System.out.println(LocalDate.of(2015, Calendar.APRIL, 1));
+        System.out.println(LocalDate.of(2015, Month.APRIL, 1));
+//        System.out.println(LocalDate.of(2015, 3, 1));
+        System.out.println(LocalDate.of(2015, 4, 1));
+//        System.out.println(new LocalDate(2015, 3, 1));
+//        System.out.println(new LocalDate(2015, 4, 1));
     }
 }
 
