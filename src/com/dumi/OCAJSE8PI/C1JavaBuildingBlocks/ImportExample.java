@@ -9,7 +9,6 @@ public class ImportExample {
         Random r = new Random();
         System.out.println(r.nextInt(30));
         java.sql.Date sqlDate;
-
     }
 
 }

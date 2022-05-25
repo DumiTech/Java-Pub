@@ -6,6 +6,4 @@ public class Zoo {
         String zoo = "test zoo";
         return zoo;
     }
-
-
 }
