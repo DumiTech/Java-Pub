@@ -2,6 +2,8 @@ package com.dumi.OCAJSE8PI.C4MethodsAndEncapsulation;
 
 public class Encapsulation {
 
+    private Encapsulation() {}
+
     private int numberEggs;
 
     public int getNumberEggs() {
@@ -24,5 +26,4 @@ public class Encapsulation {
         obj.setNumberEggs(3);
         System.out.println(obj.numberEggs);
     }
-
 }

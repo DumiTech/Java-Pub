@@ -11,7 +11,10 @@ public class TraditionalSearch {
         animals.add(new Animal("rabbit", true, false));
         animals.add(new Animal("turtle", false, true));
 
-        print(animals, new CheckIfHopper());
+//        print(animals, new CheckIfHopper());
+        print(animals, a -> a.canHop()); // passing a lambda, Java tries to map our lambda to that interface
+        print(animals, a -> a.canSwim());
+        print(animals, a -> ! a.canSwim());
     }
 
     private static void print(List<Animal> animals, CheckTrait checker) {
