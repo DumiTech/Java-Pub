@@ -1,0 +1,589 @@
+1. Which of the following can fill in the blank in this code to make it compile? (Choose all
+that apply)
+public class Ant {
+  _____ void method() { }
+}
+A. default
+B. final
+C. private
+D. Public
+E. String
+F. zzz:
+Answer: B, C.
+
+
+2. Which of the following compile? (Choose all that apply)
+A. final static void method4() { }
+B. public final int void method() { }
+C. private void int method() { }
+D. static final void method3() { }
+E. void final method() {}
+F. void public method() { }
+Answer: A, D.
+
+
+3. Which of the following methods compile? (Choose all that apply)
+A. public void methodA() { return;}
+B. public void methodB() { return null;}
+C. public void methodD() {}
+D. public int methodD() { return 9;}
+E. public int methodE() { return 9.0;}
+F. public int methodF() { return;}
+G. public int methodG() { return null;}
+Answer: A, C, D.
+
+
+4. Which of the following compile? (Choose all that apply)
+A. public void moreA(int... nums) {}
+B. public void moreB(String values, int... nums) {}
+C. public void moreC(int... nums, String values) {}
+D. public void moreD(String... values, int... nums) {}
+E. public void moreE(String[] values, ...int nums) {}
+F. public void moreF(String... values, int[] nums) {}
+G. public void moreG(String[] values, int[] nums) {}
+Answer: A, B, G.
+
+
+5. Given the following method, which of the method calls return 2? (Choose all that apply)
+public int howMany(boolean b, boolean... b2) {
+    return b2.length;
+}
+A. howMany();
+B. howMany(true);
+C. howMany(true, true);
+D. howMany(true, true, true);
+E. howMany(true, {true});
+F. howMany(true, {true, true});
+G. howMany(true, new boolean[2]);
+Answer: D, G.
+
+
+6. Which of the following are true? (Choose all that apply)
+A. Package private access is more lenient than protected access.
+B. A public class that has private fields and package private methods is not visible to
+classes outside the package.
+C. You can use access modifiers so only some of the classes in a package see a particular
+package private class.
+D. You can use access modifiers to allow read access to all methods, but not any instance
+variables.
+E. You can use access modifiers to restrict read access to all classes that begin with the
+word Test.
+Answer: D
+
+
+7. Given the following my.school.ClassRoom and my.city.School class definitions, which
+line numbers in main() generate a compiler error? (Choose all that apply)
+package my.school;
+public class Classroom {
+    private int roomNumber;
+    protected String teacherName;
+    static int globalKey = 54321;
+    public int floor = 3;
+    Classroom(int r, String t) {
+        roomNumber = r;
+        teacherName = t;
+    }
+}
+
+package my.city;
+import my.school.*;
+public class School {
+    public static void main(String[] args) {
+        System.out.println(Classroom.globalKey);
+        Classroom room = new Classroom(101, ""Mrs. Anderson");
+        System.out.println(room.roomNumber);
+        System.out.println(room.floor);
+        System.out.println(room.teacherName);
+    }
+}
+A. None, the code compiles fine.
+B. Line 5
+C. Line 6
+D. Line 7
+E. Line 8
+F. Line 9
+Answer: B, C, D, F.
+
+
+8. Which of the following are true? (Choose all that apply)
+A. Encapsulation uses package private instance variables.
+B. Encapsulation uses private instance variables.
+C. Encapsulation allows setters.
+D. Immutability uses package private instance variables.
+E. Immutability uses private instance variables.
+F. Immutability allows setters.
+Answer: B, C, E.
+
+
+9. Which are methods using JavaBeans naming conventions for accessors and mutators?
+(Choose all that apply)
+A. public boolean getCanSwim() { return canSwim;}
+B. public boolean canSwim() { return numberWings;}
+C. public int getNumWings() { return numberWings;}
+D. public int numWings() { return numberWings;}
+E. public void setCanSwim(boolean b) { canSwim = b;}
+Answer: C, E.
+
+
+10. What is the output of the following code?
+package rope;
+public class Rope {
+    public static int LENGTH = 5;
+    static {
+      LENGTH = 10;
+    }
+    public static void swing() {
+        System.out.print("swing ");
+    }
+ }
+
+import rope.*;
+import static rope.Rope.*;
+public class Chimp {
+    public static void main(String[] args) {
+        Rope.swing();
+        new Rope().swing();
+        System.out.println(LENGTH);
+    }
+}
+
+A. swing swing 5
+B. swing swing 10
+C. Compiler error on line 2 of Chimp.
+D. Compiler error on line 5 of Chimp.
+E. Compiler error on line 6 of Chimp.
+F. Compiler error on line 7 of Chimp.
+Answer: B.
+
+
+11. Which are true of the following code? (Choose all that apply)
+public class Rope {
+ public static void swing() {
+   System.out.print("swing ");
+ }
+ public void climb() {
+   System.out.println("climb ");
+ }
+ public static void play() {
+   swing();
+   climb();
+ }
+ public static void main(String[] args) {
+   Rope rope = new Rope();
+   rope.play();
+   Rope rope2 = null;
+   rope2.play();
+ }
+}
+A. The code compiles as is.
+B. There is exactly one compiler error in the code.
+C. There are exactly two compiler errors in the code.
+D. If the lines with compiler errors are removed, the output is climb climb.
+E. If the lines with compiler errors are removed, the output is swing swing.
+F. If the lines with compile errors are removed, the code throws a NullPointerException.
+Answer: B, E.
+
+
+12. What is the output of the following code?
+import rope.*;
+import static rope.Rope.*;
+public class RopeSwing {
+  private static Rope rope1 = new Rope();
+  private static Rope rope2 = new Rope();
+  {
+    System.out.println(rope1.length);
+  }
+  public static void main(String[] args) {
+    rope1.length = 2;
+    rope2.length = 8;
+    System.out.println(rope1.length);
+  }
+}
+
+package rope;
+public class Rope {
+  public static int length = 0;
+}
+
+A. 02
+B. 08
+C. 2
+D. 8
+E. The code does not compile.
+F. An exception is thrown.
+Answer: D.
+
+
+13. How many compiler errors are in the following code?
+public class RopeSwing {
+    private static final String leftRope;
+    private static final String rightRope;
+    private static final String bench;
+    private static final String name = "name";
+    static {
+      leftRope = "left";
+      rightRope = "right";
+    }
+    static {
+        name = "name";
+        rightRope = "right";
+    }
+    public static void main(String[] args) {
+        bench = "bench";
+    }
+}
+
+A. 0
+B. 1
+C. 2
+D. 3
+E. 4
+F. 5
+Answer: E.
+
+
+14. Which of the following can replace line 2 to make this code compile? (Choose
+all that apply)
+import java.util.*;
+// INSERT CODE HERE
+public class Imports {
+    public void method(ArrayList<String> list) {
+        sort(list);
+    }
+}
+A. import static java.util.Collections;
+B. import static java.util.Collections.*;
+C. import static java.util.Collections.sort(ArrayList<String>);
+D. static import java.util.Collections;
+E. static import java.util.Collections.*;
+F. static import java.util.Collections.sort(ArrayList<String>);
+Answer: B
+
+
+15. What is the result of the following statements?
+public class Test {
+    public void print(byte x) {
+        System.out.print("byte");
+    }
+    public void print(int x) {
+        System.out.print("int");
+    }
+    public void print(float x) {
+        System.out.print("float");
+    }
+    public void print(Object x) {
+        System.out.print("Object");
+    }
+    public static void main(String[] args) {
+        Test t = new Test();
+        short s = 123;
+        t.print(s);
+        t.print(true);
+        t.print(6.789);
+    }
+}
+A. bytefloatObject
+B. intfloatObject
+C. byteObjectfloat
+D. intObjectfloat
+E. intObjectObject
+F. byteObjectObject
+Answer: E.
+
+
+16. What is the result of the following program?
+public class Squares {
+public static long square(int x) {
+  long y = x * (long) x;
+  x = -1;
+  return y;
+}
+public static void main(String[] args) {
+  int value = 9;
+  long result = square(value);
+   System.out.println(value);
+ } }
+A. -1
+B. 9
+C. 81
+D. Compiler error on line 9.
+E. Compiler error on a different line.
+Answer: B.
+
+
+17. Which of the following are output by the following code? (Choose all that apply)
+public class StringBuilders {
+    public static StringBuilder work(StringBuilder a, StringBuilder b) {
+    a = new StringBuilder("a");
+    b.append("b");
+    return a; }
+    public static void main(String[] args) {
+        StringBuilder s1 = new StringBuilder("s1");
+        StringBuilder s2 = new StringBuilder("s2");
+        StringBuilder s3 = work(s1, s2);
+        System.out.println("s1 = " + s1);
+        System.out.println("s2 = " + s2);
+        System.out.println("s3 = " + s3);
+    }
+}
+A. s1 = a
+B. s1 = s1
+C. s2 = s2
+D. s2 = s2b
+E. s3 = a
+F. s3 = null
+G. The code does not compile.
+Answer: B, D, E.
+
+
+18. Which of the following are true? (Choose 2)
+A. this() can be called from anywhere in a constructor.
+B. this() can be called from any instance method in the class.
+C. this.variableName can be called from any instance method in the class.
+D. this.variableName can be called from any static method in the class.
+E. You must include a default constructor in the code if the compiler does not include one.
+F. You can call the default constructor written by the compiler using this().
+G. You can access a private constructor with the main() method.
+Answer: C, G
+
+
+19. Which of these classes compile and use a default constructor? (Choose all that apply)
+A. public class Bird { }
+B. public class Bird { public bird() {} }
+C. public class Bird { public bird(String name) {} }
+D. public class Bird { public Bird() {} }
+E. public class Bird { Bird(String name) {} }
+F. public class Bird { private Bird(int age) {} }
+G. public class Bird { void Bird() { }
+Answer: A, G.
+
+
+20. Which code can be inserted to have the code print 2?
+public class BirdSeed {
+  private int numberBags;
+  boolean call;
+
+  public BirdSeed() {
+    // LINE 1
+    call = false;
+    // LINE 2
+  }
+  public BirdSeed(int numberBags) {
+    this.numberBags = numberBags;
+  }
+  public static void main(String[] args) {
+    BirdSeed seed = new BirdSeed();
+    System.out.println(seed.numberBags);
+  } }
+A. Replace line 1 with BirdSeed(2);
+B. Replace line 2 with BirdSeed(2);
+C. Replace line 1 with new BirdSeed(2);
+D. Replace line 2 with new BirdSeed(2);
+E. Replace line 1 with this(2);
+F. Replace line 2 with this(2);
+Answer: E
+
+
+21. Which of the following complete the constructor so that this code prints out 50? (Choose
+all that apply)
+public class Cheetah {
+  int numSpots;
+  public Cheetah(int numSpots) {
+    // INSERT CODE HERE
+  }
+  public static void main(String[] args) {
+    System.out.println(new Cheetah(50).numSpots);
+  }
+}
+A. numSpots = numSpots;
+B. numSpots = this.numSpots;
+C. this.numSpots = numSpots;
+D. numSpots = super.numSpots;
+E. super.numSpots = numSpots;
+F. None of the above.
+Answer: C.
+
+
+22. What is the result of the following?
+public class Order {
+  static String result = "";
+  { result += "c"; }
+  static
+  { result += "u"; }
+  { result += "r"; }
+}
+
+public class OrderDriver {
+ public static void main(String[] args) {
+   System.out.print(Order.result + " ");
+   System.out.print(Order.result + " ");
+   new Order();
+   new Order();
+   System.out.print(Order.result + " ");
+ }
+A. curur
+B. ucrcr
+C. u ucrcr
+D. u u curcur
+E. u u ucrcr
+F. ur ur urc
+G. The code does not compile.
+Answer: E
+
+
+23. What is the result of the following?
+public class Order {
+    String value = "t";
+    { value += "a"; }
+    { value += "c"; }
+public Order() {
+    value += "b";
+}
+public Order(String s) {
+  value += s;
+}
+public static void main(String[] args) {
+    Order order = new Order("f");
+    order = new Order();
+    System.out.println(order.value);
+} }
+A. tacb
+B. tacf
+C. tacbf
+D. tacfb
+E. tacftacb
+F. The code does not compile
+G. An exception is thrown.
+Answer: A.
+
+
+24. Which of the following will compile when inserted in the following code? (Choose
+all that apply)
+public class Order3 {
+    final String value1 = "1";
+    static String value2 = "2";
+    String value3 = "3";
+    {
+      // CODE SNIPPET 1
+    }
+    static {
+      // CODE SNIPPET 2
+    }
+}
+A. value1 = "d"; instead of // CODE SNIPPET 1
+B. value2 = "e"; instead of // CODE SNIPPET 1
+C. value3 = "f"; instead of // CODE SNIPPET 1
+D. value1 = "g"; instead of // CODE SNIPPET 2
+E. value2 = "h"; instead of // CODE SNIPPET 2
+F. value3 = "i"; instead of // CODE SNIPPET 2
+Answer: B, C, E.
+
+
+25. Which of the following are true about the following code? (Choose all that apply)
+public class Create {
+    Create() {
+      System.out.print("1 ");
+    }
+    Create(int num) {
+      System.out.print("2 ");
+    }
+    Create(Integer num) {
+      System.out.print("3 ");
+    }
+    Create(Object num) {
+      System.out.print("4 ");
+    }
+    Create(int... nums) {
+      System.out.print("5 ");
+    }
+    public static void main(String[] args) {
+      new Create(100);
+      new Create(1000L);
+    }
+}
+A. The code prints out 2 4.
+B. The code prints out 3 4.
+C. The code prints out 4 2.
+D. The code prints out 4 4.
+E. The code prints 3 4 if you remove the constructor Create(int num).
+F. The code prints 4 4 if you remove the constructor Create(int num).
+G. The code prints 5 4 if you remove the constructor Create(int num).
+Answer: A, E
+
+
+26. What is the result of the following class?
+import java.util.function.*;
+public class Panda {
+    int age;
+    public static void main(String[] args) {
+        Panda p1 = new Panda();
+        p1.age = 1;
+        check(p1, p -> p.age < 5);
+    }
+    private static void check(Panda panda, Predicate<Panda> pred) {
+        String result = pred.test(panda) ? "match" : "not match";
+        System.out.print(result);
+    }
+}
+A. match
+B. not match
+C. Compiler error on line 8.
+D. Compiler error on line 10.
+E. Compiler error on line 11.
+F. A runtime exception is thrown.
+Answer: A
+
+
+27. What is the result of the following code?
+interface Climb {
+    boolean isTooHigh(int height, int limit);
+}
+public class Climber {
+    public static void main(String[] args) {
+    check((h, l) -> h.append(l).isEmpty(), 5);
+    }
+    private static void check(Climb climb, int height) {
+    if (climb.isTooHigh(height, 10))
+        System.out.println("too high");
+    else
+        System.out.println("ok");
+}
+A. ok
+B. too high
+C. Compiler error on line 7.
+D. Compiler error on line 10.
+E. Compiler error on a different line.
+F. A runtime exception is thrown.
+Answer: C.
+
+
+28. Which of the following lambda expressions can fill in the blank? (Choose all that apply)
+List<String> list = new ArrayList<>();
+list.removeIf(___________________);
+A. s -> s.isEmpty()
+B. s -> {s.isEmpty()}
+C. s -> {s.isEmpty();}
+D. s -> {return s.isEmpty();}
+E. String s -> s.isEmpty()
+F. (String s) -> s.isEmpty()
+Answer: A, D, F.
+
+
+29. Which lambda can replace the MySecret class to return the same value? (Choose
+all that apply)
+interface Secret {
+    String magic(double d);
+}
+
+class MySecret implements Secret {
+  public String magic(double d) {
+    return "Poof";
+  }
+}
+A. caller((e) -> "Poof");
+B. caller((e) -> {"Poof"});
+C. caller((e) -> { String e = ""; "Poof" });
+D. caller((e) -> { String e = ""; return "Poof"; });
+E. caller((e) -> { String e = ""; return "Poof" });
+F. caller((e) -> { String f = ""; return "Poof"; });
+Answer: A, F
