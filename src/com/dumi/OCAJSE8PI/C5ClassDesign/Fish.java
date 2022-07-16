@@ -1,0 +1,12 @@
+package com.dumi.OCAJSE8PI.C5ClassDesign;
+
+public class Fish {
+    protected int size;
+    private int age;
+    public Fish(int age) {
+        this.age = age;
+    }
+    public int getAge() {
+        return age;
+    }
+}
