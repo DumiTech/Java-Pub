@@ -1,4 +1,12 @@
-package com.dumi;
+package com.dumi.leetcode;
+
+/*
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+*/
 
 public class TwoSum {
     public static void main(String[] args) {
@@ -9,24 +17,20 @@ public class TwoSum {
     }
 }
 
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-
-        int size = nums.length;
         int[] answer = new int[2];
-        int count = 0;
-
-        while (count < size && nums[count] <= size) {
-            int temp = nums[count] + nums[count+1];
-            if (temp == target) {
-                System.out.println(String.format("[%s, %s]", count, count+1));
-                answer[0] = count;
-                answer[1] = count+1;
-                return answer;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    answer[0] = i;
+                    answer[1] = j;
+                    System.out.println(String.format("[%s, %s]", i, j));
+                    return answer;
+                }
             }
-            count++;
         }
         return null;
-
     }
 }
